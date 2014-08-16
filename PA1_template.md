@@ -67,6 +67,16 @@ head(data)
 ```r
 dailySummary <- ddply ( data, .(activityDate), summarise, total.step = sum(steps, na.rm=TRUE) )
 
+
+summary( dailySummary$total.step)
+```
+
+```
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##       0    6780   10400    9350   12800   21200
+```
+
+```r
 hist ( dailySummary$total.step , breaks = 15, col="green", border = "red", 
        freq=TRUE, plot = TRUE , xlab = "Number of Steps Per Day", ylab= "Frequency" , 
        main= "Frequency of Number of Steps taken per Day")
@@ -181,7 +191,8 @@ Compared to original dataset, the median hasn't changed, that means, the missing
 
 
 ## Differences in activity patterns between weekdays and weekends
-As graphs in bleow represent, during week Days, the average number of steps during morning until 12PM is much higher than weekends. 
+As graphs in bleow represent, during week Days, the average number of steps during morning until 12PM is much higher than weekends.
+
 
 
 ```r

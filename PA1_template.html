@@ -248,7 +248,15 @@ nrow(data)
 
 <pre><code class="r">dailySummary &lt;- ddply ( data, .(activityDate), summarise, total.step = sum(steps, na.rm=TRUE) )
 
-hist ( dailySummary$total.step , breaks = 15, col=&quot;green&quot;, border = &quot;red&quot;, 
+
+summary( dailySummary$total.step)
+</code></pre>
+
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##       0    6780   10400    9350   12800   21200
+</code></pre>
+
+<pre><code class="r">hist ( dailySummary$total.step , breaks = 15, col=&quot;green&quot;, border = &quot;red&quot;, 
        freq=TRUE, plot = TRUE , xlab = &quot;Number of Steps Per Day&quot;, ylab= &quot;Frequency&quot; , 
        main= &quot;Frequency of Number of Steps taken per Day&quot;)
 </code></pre>
@@ -345,7 +353,7 @@ and median was 1.0395 &times; 10<sup>4</sup></p>
 
 <h2>Differences in activity patterns between weekdays and weekends</h2>
 
-<p>As graphs in bleow represent, during week Days, the average number of steps during morning until 12PM is much higher than weekends. </p>
+<p>As graphs in bleow represent, during week Days, the average number of steps during morning until 12PM is much higher than weekends.</p>
 
 <pre><code class="r">qplot( interval, steps, data=data1 , type = &quot;l&quot;, facets =  datecategory~., geom= &quot;line&quot;)
 </code></pre>
